@@ -1,0 +1,77 @@
+<?php
+
+namespace App\Models;
+
+use Database\Factories\UserFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Filament\Panel;
+
+class User extends Authenticatable
+{
+    /** @use HasFactory<UserFactory> */
+    use HasFactory, Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
+    protected $table = 'users';
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'no_telepon',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var list<string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'password' => 'hashed',
+        ];
+    }
+
+    // Izinkan akses ke Filament Admin Panel hanya untuk role 'admin'
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    public function keranjang()
+    {
+        return $this->hasMany(Keranjang::class);
+    }
+    public function transaksi()
+    {
+        return $this->hasMany(Transaksi::class);
+    }
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
+    public function reviews()
+    {
+        return $this->hasMany(ProdukReview::class);
+    }
+    public function getNamaAttribute()
+    {
+        return $this->name;
+    }
+}

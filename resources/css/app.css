@@ -1,0 +1,295 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+/* ============================================================
+   OTOMOTIF SHOP — Global Theme Overrides
+   Palette: Deep Green (#1B4D3E) + Amber (#F59E0B)
+   ============================================================ */
+
+:root {
+  --primary: #1B4D3E;
+  --primary-light: #2D6B54;
+  --primary-dark: #0F2E25;
+  --accent: #F59E0B;
+  --accent-hover: #D97706;
+  --dark: #111827;
+  --body-bg: #F8FAF9;
+  --card-bg: #FFFFFF;
+  --muted: #6B7280;
+  --success: #10B981;
+  --danger: #EF4444;
+  --border: #E5E7EB;
+}
+
+body {
+  --bs-body-bg: var(--body-bg);
+  --bs-body-color: #374151;
+  --bs-primary: var(--primary);
+  --bs-primary-rgb: 27, 77, 62;
+  --bs-success: var(--success);
+  --bs-success-rgb: 16, 185, 129;
+  --bs-danger: var(--danger);
+  --bs-danger-rgb: 239, 68, 68;
+  --bs-body-font-family: "Inter", sans-serif;
+  --bs-body-font-weight: 400;
+  --bs-body-line-height: 1.6;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--primary);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--primary-light);
+  --bs-btn-hover-border-color: var(--primary-light);
+  --bs-btn-active-bg: var(--primary-dark);
+  --bs-btn-active-border-color: var(--primary-dark);
+  --bs-btn-disabled-bg: #9CA3AF;
+  --bs-btn-disabled-border-color: #9CA3AF;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--primary);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--primary);
+  --bs-btn-hover-border-color: var(--primary);
+  --bs-btn-active-bg: var(--primary-dark);
+  --bs-btn-active-border-color: var(--primary-dark);
+}
+
+.btn-warning {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--accent-hover);
+  --bs-btn-hover-border-color: var(--accent-hover);
+}
+
+/* ============================================================
+   Navbar
+   ============================================================ */
+.navbar.bg-dark {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.navbar .nav-link {
+  color: rgba(255, 255, 255, 0.75) !important;
+  transition: color 0.2s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: #fff !important;
+}
+.navbar .nav-link.active {
+  color: var(--accent) !important;
+}
+.navbar .dropdown-menu {
+  border: none;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  padding: 0.5rem;
+}
+
+/* ============================================================
+   Breadcrumbs
+   ============================================================ */
+.breadcrumb {
+  --bs-breadcrumb-divider-color: var(--muted);
+  --bs-breadcrumb-item-active-color: var(--primary);
+}
+.breadcrumb a {
+  color: var(--muted) !important;
+  transition: color 0.2s ease;
+}
+.breadcrumb a:hover {
+  color: var(--primary) !important;
+}
+
+/* ============================================================
+   Cards
+   ============================================================ */
+.card.border-0.shadow-sm {
+  border-radius: 16px;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  transition: box-shadow 0.3s ease;
+}
+.card.border-0.shadow-sm:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ============================================================
+   Pagination
+   ============================================================ */
+.pagination .page-link {
+  color: var(--primary);
+  border-color: var(--border);
+  border-radius: 8px;
+  margin: 0 2px;
+  transition: all 0.2s ease;
+}
+.pagination .page-item.active .page-link {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.pagination .page-link:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ============================================================
+   Alerts
+   ============================================================ */
+.alert-success {
+  --bs-alert-color: #065F46;
+  --bs-alert-bg: #ECFDF5;
+  --bs-alert-border-color: #A7F3D0;
+}
+.alert-danger {
+  --bs-alert-color: #991B1B;
+  --bs-alert-bg: #FEF2F2;
+  --bs-alert-border-color: #FECACA;
+}
+.alert-info {
+  --bs-alert-color: #1E40AF;
+  --bs-alert-bg: #EFF6FF;
+  --bs-alert-border-color: #BFDBFE;
+}
+.alert-warning {
+  --bs-alert-color: #92400E;
+  --bs-alert-bg: #FFFBEB;
+  --bs-alert-border-color: #FDE68A;
+}
+
+/* ============================================================
+   Forms
+   ============================================================ */
+.form-control,
+.form-select {
+  border-color: var(--border);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(27, 77, 62, 0.1);
+}
+
+/* ============================================================
+   Badges
+   ============================================================ */
+.badge.bg-primary {
+  background: var(--primary) !important;
+}
+.badge.bg-success {
+  background: var(--success) !important;
+}
+.badge.bg-danger {
+  background: var(--danger) !important;
+}
+.badge.bg-warning {
+  background: var(--accent) !important;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+footer.bg-dark {
+  background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%) !important;
+}
+
+/* ============================================================
+   Accordion
+   ============================================================ */
+.accordion-button {
+  color: var(--dark);
+}
+.accordion-button:not(.collapsed) {
+  color: var(--primary);
+  background: rgba(27, 77, 62, 0.03);
+  box-shadow: none;
+}
+.accordion-button:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(27, 77, 62, 0.1);
+}
+.accordion-item {
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+}
+
+/* ============================================================
+   Table
+   ============================================================ */
+.table > :not(caption) > * > * {
+  border-color: var(--border);
+}
+.table thead th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  font-weight: 600;
+  border-bottom: 2px solid var(--border) !important;
+}
+
+/* ============================================================
+   Scrollbar
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--body-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* ============================================================
+   Selection
+   ============================================================ */
+::selection {
+  background: rgba(27, 77, 62, 0.15);
+  color: var(--primary-dark);
+}
+
+/* Accent color utility */
+.text-accent {
+  color: #F59E0B !important;
+}
+
+/* Dashboard stat icon backgrounds */
+.bg-primary.bg-opacity-10 {
+  background-color: rgba(27, 77, 62, 0.1) !important;
+}
+.bg-success.bg-opacity-10 {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+}
+.bg-warning.bg-opacity-10 {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+}
+.bg-info.bg-opacity-10 {
+  background-color: rgba(14, 165, 233, 0.1) !important;
+}
+
+/* Text color utilities matching theme */
+.text-warning {
+  color: var(--accent) !important;
+}

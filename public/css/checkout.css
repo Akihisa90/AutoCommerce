@@ -1,0 +1,267 @@
+/* ============================================================
+   Otomotif Shop - Checkout Styles
+   ============================================================ */
+
+/* Payment Options */
+.payment-option {
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid var(--border-color) !important;
+    border-radius: var(--radius-lg) !important;
+}
+
+.payment-option:hover {
+    background-color: var(--hover-bg);
+    border-color: rgba(45, 107, 84, 0.3) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+}
+
+.payment-option.border-primary {
+    border-color: #2D6B54 !important;
+    background-color: rgba(45, 107, 84, 0.05);
+    box-shadow: 0 0 0 3px rgba(45, 107, 84, 0.15);
+}
+
+.payment-subtype-option {
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid var(--border-color) !important;
+    border-radius: var(--radius-lg) !important;
+}
+
+.payment-subtype-option:hover {
+    background-color: var(--hover-bg);
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+}
+
+.payment-subtype-option.border-primary {
+    border-color: #2D6B54 !important;
+    background-color: rgba(45, 107, 84, 0.05);
+    box-shadow: 0 0 0 3px rgba(45, 107, 84, 0.15);
+}
+
+.payment-option input[type="radio"],
+.payment-subtype-option input[type="radio"] {
+    margin-right: 12px;
+    accent-color: #2D6B54;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--primary-gradient);
+    border: none;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(27, 77, 62, 0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(27, 77, 62, 0.35);
+}
+
+.btn-outline-primary {
+    border: 2px solid #2D6B54;
+    color: #2D6B54;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-primary:hover {
+    background: #2D6B54;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 107, 84, 0.25);
+}
+
+.text-primary {
+    color: #2D6B54 !important;
+}
+
+.form-check-input:checked {
+    background-color: #2D6B54;
+    border-color: #2D6B54;
+}
+
+.form-control:focus {
+    border-color: #2D6B54;
+    box-shadow: 0 0 0 3px rgba(45, 107, 84, 0.15);
+}
+
+/* Badges */
+.badge {
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    padding: 0.35em 0.65em;
+}
+
+.badge.bg-primary {
+    background: #2D6B54 !important;
+}
+
+/* Accordion */
+.accordion-item {
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-lg) !important;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.accordion-item:hover {
+    box-shadow: var(--card-shadow);
+}
+
+.accordion-button {
+    border-radius: var(--radius-lg) !important;
+    font-weight: 600;
+    padding: 1.25rem 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #2D6B54;
+    background: rgba(45, 107, 84, 0.05);
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    border-color: #2D6B54;
+    box-shadow: 0 0 0 3px rgba(45, 107, 84, 0.15);
+}
+
+.accordion-button::after {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-body {
+    padding: 1.5rem;
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"] .payment-option {
+    border-color: var(--border-color, #475569) !important;
+    background-color: var(--bg-card, #1e293b) !important;
+}
+
+[data-theme="dark"] .payment-option:hover {
+    background-color: var(--hover-bg, #334155) !important;
+    border-color: #2D6B54 !important;
+}
+
+[data-theme="dark"] .payment-option.border-primary {
+    border-color: #2D6B54 !important;
+    background-color: rgba(45, 107, 84, 0.15) !important;
+    box-shadow: 0 0 0 3px rgba(45, 107, 84, 0.2) !important;
+}
+
+[data-theme="dark"] .payment-subtype-option {
+    border-color: var(--border-color, #475569) !important;
+    background-color: var(--bg-card, #1e293b) !important;
+}
+
+[data-theme="dark"] .payment-subtype-option:hover {
+    background-color: var(--hover-bg, #334155) !important;
+}
+
+[data-theme="dark"] .payment-subtype-option.border-primary {
+    border-color: #2D6B54 !important;
+    background-color: rgba(45, 107, 84, 0.15) !important;
+    box-shadow: 0 0 0 3px rgba(45, 107, 84, 0.2) !important;
+}
+
+[data-theme="dark"] .btn-primary {
+    background: linear-gradient(135deg, #2D6B54, #34d399) !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background: linear-gradient(135deg, #1B4D3E, #2D6B54) !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .btn-outline-primary {
+    border-color: #2D6B54 !important;
+    color: #34d399 !important;
+}
+
+[data-theme="dark"] .btn-outline-primary:hover {
+    background-color: #2D6B54 !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .text-primary {
+    color: #34d399 !important;
+}
+
+[data-theme="dark"] .form-check-input:checked {
+    background-color: #2D6B54 !important;
+    border-color: #2D6B54 !important;
+}
+
+[data-theme="dark"] .form-control {
+    background-color: var(--bg-input, #1e293b) !important;
+    border-color: var(--border-color, #475569) !important;
+    color: var(--text-main, #E5E7EB) !important;
+}
+
+[data-theme="dark"] .form-control:focus {
+    border-color: #2D6B54 !important;
+    box-shadow: 0 0 0 3px rgba(45, 107, 84, 0.2) !important;
+}
+
+[data-theme="dark"] .badge.bg-primary {
+    background: #2D6B54 !important;
+}
+
+[data-theme="dark"] .accordion-button:not(.collapsed) {
+    color: #34d399 !important;
+    background: rgba(45, 107, 84, 0.15) !important;
+}
+
+[data-theme="dark"] .accordion-button {
+    background-color: var(--bg-card, #1e293b) !important;
+    color: var(--text-heading, #F3F4F6) !important;
+    border-color: var(--border-color, #334155) !important;
+}
+
+[data-theme="dark"] .accordion-body {
+    background-color: var(--bg-card, #1e293b) !important;
+    color: var(--text-main, #E5E7EB) !important;
+}
+
+[data-theme="dark"] .accordion-item {
+    background-color: var(--bg-card, #1e293b) !important;
+    border-color: var(--border-color, #334155) !important;
+}
+
+[data-theme="dark"] .voucher-input {
+    background-color: var(--bg-input, #1e293b) !important;
+    border-color: var(--border-color, #475569) !important;
+    color: var(--text-main, #E5E7EB) !important;
+}
+
+[data-theme="dark"] .voucher-input:focus {
+    border-color: #2D6B54 !important;
+    box-shadow: 0 0 0 3px rgba(45, 107, 84, 0.2) !important;
+}
+
+[data-theme="dark"] .voucher-valid {
+    border-color: #22c55e !important;
+}
+
+[data-theme="dark"] .voucher-invalid {
+    border-color: #ef4444 !important;
+}
+
+[data-theme="dark"] .voucher-message-success {
+    color: #4ade80 !important;
+}
+
+[data-theme="dark"] .voucher-message-error {
+    color: #f87171 !important;
+}

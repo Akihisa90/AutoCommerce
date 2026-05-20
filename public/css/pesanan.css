@@ -1,0 +1,239 @@
+/* ============================================================
+   Otomotif Shop - Pesanan (Orders) Styles
+   ============================================================ */
+
+/* Rating Stars */
+.rating-star {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border-color: var(--border-color) !important;
+    color: var(--border-color) !important;
+    border-radius: var(--radius-md);
+}
+
+.rating-star:hover,
+.rating-star.active {
+    border-color: #F59E0B !important;
+    color: #F59E0B !important;
+    background: rgba(245, 158, 11, 0.1) !important;
+    transform: scale(1.1);
+}
+
+.rating-star.active i {
+    color: #F59E0B !important;
+}
+
+/* Accordion */
+.accordion-item {
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-lg) !important;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.accordion-item:hover {
+    box-shadow: var(--card-shadow);
+}
+
+.accordion-button {
+    border-radius: var(--radius-lg) !important;
+    font-weight: 600;
+    padding: 1.25rem 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #2D6B54;
+    background: rgba(45, 107, 84, 0.05);
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    border-color: #2D6B54;
+    box-shadow: 0 0 0 3px rgba(45, 107, 84, 0.15);
+}
+
+.accordion-button::after {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-body {
+    padding: 1.5rem;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--primary-gradient);
+    border: none;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 12px rgba(27, 77, 62, 0.25);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(27, 77, 62, 0.35);
+}
+
+.btn-outline-primary {
+    border: 2px solid #2D6B54;
+    color: #2D6B54;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-primary:hover {
+    background: #2D6B54;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 107, 84, 0.25);
+}
+
+.btn-outline-danger {
+    border: 2px solid #dc2626;
+    color: #dc2626;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-danger:hover {
+    background: #dc2626;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
+}
+
+.btn-danger {
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
+}
+
+/* Badges */
+.badge {
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    padding: 0.35em 0.65em;
+}
+
+.badge.bg-primary {
+    background: #2D6B54 !important;
+}
+
+.bg-primary {
+    background: #2D6B54 !important;
+}
+
+.text-primary {
+    color: #2D6B54 !important;
+}
+
+/* Table */
+.table {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.table > :not(caption) > * > * {
+    padding: 1rem;
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"] .rating-star {
+    border-color: var(--border-color, #475569) !important;
+    color: var(--border-color, #475569) !important;
+}
+
+[data-theme="dark"] .accordion-button:not(.collapsed) {
+    color: #34d399 !important;
+    background: rgba(45, 107, 84, 0.15) !important;
+}
+
+[data-theme="dark"] .accordion-button {
+    background-color: var(--bg-card, #1e293b) !important;
+    color: var(--text-heading, #F3F4F6) !important;
+    border-color: var(--border-color, #334155) !important;
+}
+
+[data-theme="dark"] .accordion-body {
+    background-color: var(--bg-card, #1e293b) !important;
+    color: var(--text-main, #E5E7EB) !important;
+}
+
+[data-theme="dark"] .accordion-item {
+    background-color: var(--bg-card, #1e293b) !important;
+    border-color: var(--border-color, #334155) !important;
+}
+
+[data-theme="dark"] .btn-primary {
+    background: linear-gradient(135deg, #2D6B54, #34d399) !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background: linear-gradient(135deg, #1B4D3E, #2D6B54) !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .btn-outline-primary {
+    border-color: #2D6B54 !important;
+    color: #34d399 !important;
+}
+
+[data-theme="dark"] .btn-outline-primary:hover {
+    background-color: #2D6B54 !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .btn-outline-danger {
+    border-color: #dc2626 !important;
+    color: #f87171 !important;
+}
+
+[data-theme="dark"] .btn-outline-danger:hover {
+    background-color: #dc2626 !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .btn-danger {
+    background: linear-gradient(135deg, #dc2626, #f87171) !important;
+    border: none !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .btn-danger:hover {
+    background: linear-gradient(135deg, #b91c1c, #dc2626) !important;
+}
+
+[data-theme="dark"] .badge.bg-primary {
+    background: #2D6B54 !important;
+}
+
+[data-theme="dark"] .text-primary {
+    color: #34d399 !important;
+}
+
+[data-theme="dark"] .table-responsive {
+    background-color: var(--bg-card, #1e293b) !important;
+}
+
+[data-theme="dark"] .table {
+    background-color: var(--bg-card, #1e293b) !important;
+    color: var(--text-main, #E5E7EB) !important;
+}
+
+[data-theme="dark"] .table-light {
+    background-color: var(--bg-light, #334155) !important;
+}
+
+[data-theme="dark"] .timeline {
+    color: var(--text-main, #E5E7EB) !important;
+}
