@@ -55,7 +55,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL', 'http://localhost').'/files',
+            'url' => env('APP_URL', 'http://localhost').'/uploads',
             'visibility' => 'public',
             'serve' => true,
             'throw' => false,

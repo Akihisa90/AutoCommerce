@@ -18,8 +18,8 @@ Route::get('/', function () {
 Route::get('/katalog', [KatalogController::class, 'index'])->name('katalog');
 Route::get('/produk/{produk}', [KatalogController::class, 'show'])->name('produk.show');
 
-// Serve storage files via /files/ route (works on Laravel Cloud where symlink may not work)
-Route::get('/files/{path}', function ($path) {
+// Serve uploaded files via /uploads/ route (works on Laravel Cloud where symlink may not work)
+Route::get('/uploads/{path}', function ($path) {
     $fullPath = storage_path('app/public/' . $path);
     
     if (!file_exists($fullPath)) {
@@ -28,8 +28,6 @@ Route::get('/files/{path}', function ($path) {
             'requested_path' => $fullPath,
             'dir_exists' => is_dir($dir),
             'dir_contents' => is_dir($dir) ? array_values(scandir($dir)) : [],
-            'storage_app_exists' => is_dir(storage_path('app')),
-            'storage_app_public_exists' => is_dir(storage_path('app/public')),
         ];
         return response()->json(['error' => 'File not found', 'debug' => $debug], 404);
     }
@@ -40,9 +38,9 @@ Route::get('/files/{path}', function ($path) {
     ]);
 })->where('path', '.*');
 
-// Redirect old /storage/ URLs to /files/ for backward compatibility
+// Fallback: redirect old /storage/ URLs to /uploads/
 Route::get('/storage/{path}', function ($path) {
-    return redirect('/files/' . $path, 301);
+    return redirect('/uploads/' . $path, 302);
 })->where('path', '.*');
 
 // Debug route for storage (remove after debugging)
