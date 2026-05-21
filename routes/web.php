@@ -32,6 +32,20 @@ Route::get('/storage/{path}', function ($path) {
     ]);
 })->where('path', '.*');
 
+// Debug route for storage (remove after debugging)
+Route::get('/storage-debug', function () {
+    $link = public_path('storage');
+    return response()->json([
+        'symlink_is_link' => is_link($link),
+        'symlink_target' => is_link($link) ? readlink($link) : null,
+        'symlink_exists' => file_exists($link),
+        'storage_app_public_exists' => is_dir(storage_path('app/public')),
+        'storage_produk_exists' => is_dir(storage_path('app/public/produk')),
+        'storage_produk_files' => is_dir(storage_path('app/public/produk')) ? array_values(scandir(storage_path('app/public/produk'))) : [],
+        'storage_app_public_files' => is_dir(storage_path('app/public')) ? array_values(scandir(storage_path('app/public'))) : [],
+    ]);
+});
+
 /*
 | 2. ROUTE USER (Membutuhkan Login)
 */
