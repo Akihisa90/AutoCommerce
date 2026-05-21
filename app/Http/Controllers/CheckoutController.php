@@ -132,7 +132,14 @@ class CheckoutController extends Controller
 
             if ($request->voucher_id) {
                 $voucher = Voucher::find($request->voucher_id);
-                if ($voucher && $voucher->canApply($subtotal, $userId)) {
+                if ($voucher) {
+                    if (!$voucher->isValid()) {
+                        return back()->with('error', 'Voucher sudah tidak berlaku (kadaluarsa atau kuota habis).');
+                    }
+                    if (!$voucher->canApply($subtotal, $userId)) {
+                        $minPembelian = number_format($voucher->min_pembelian, 0, ',', '.');
+                        return back()->with('error', "Voucher tidak dapat diterapkan. Minimum pembelian: Rp {$minPembelian}.");
+                    }
                     $diskonVoucher = $voucher->calculateDiscount($subtotal);
                     $voucherId = $voucher->id;
                     $voucher->increment('jumlah_dipakai');

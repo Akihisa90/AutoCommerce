@@ -53,15 +53,18 @@ class Voucher extends Model
 
     public function calculateDiscount(float|int $subtotal): float
     {
+        $nilaiDiskon = (float) $this->nilai_diskon;
+
         if ($this->tipe_diskon === 'persen') {
-            $discount = ($subtotal * $this->nilai_diskon) / 100;
-            if ($this->max_diskon && $discount > $this->max_diskon) {
-                $discount = $this->max_diskon;
+            $discount = ($subtotal * $nilaiDiskon) / 100;
+            $maxDiskon = $this->max_diskon ? (float) $this->max_diskon : null;
+            if ($maxDiskon && $discount > $maxDiskon) {
+                $discount = $maxDiskon;
             }
-            return $discount;
+            return min($discount, $subtotal);
         }
 
-        return $this->nilai_diskon;
+        return min($nilaiDiskon, $subtotal);
     }
 
     public function getUserUsageCount(int $userId): int
