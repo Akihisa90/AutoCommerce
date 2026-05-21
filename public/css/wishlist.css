@@ -1,0 +1,73 @@
+/* ============================================================
+   Otomotif Shop - Wishlist Styles
+   ============================================================ */
+
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #E5E7EB !important;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+.product-image {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.08);
+}
+
+.product-placeholder {
+    height: 200px;
+}
+
+.product-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.btn-cart {
+    background: linear-gradient(135deg, #1B4D3E, #2D6B54);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.45rem 0.8rem;
+    font-size: 0.8rem;
+}
+
+.btn-cart:hover:not(:disabled) {
+    background: linear-gradient(135deg, #0F2E25, #1B4D3E);
+    color: #fff;
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"] .product-card {
+    background-color: var(--bg-card, #1e293b) !important;
+    border-color: var(--border-color, #334155) !important;
+}
+
+[data-theme="dark"] .product-card:hover {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .product-title {
+    color: var(--text-heading, #F3F4F6) !important;
+}
+
+[data-theme="dark"] .btn-cart {
+    background: linear-gradient(135deg, #2D6B54, #34d399) !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .btn-cart:hover:not(:disabled) {
+    background: linear-gradient(135deg, #1B4D3E, #2D6B54) !important;
+    color: #fff !important;
+}
