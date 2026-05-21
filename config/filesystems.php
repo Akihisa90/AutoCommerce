@@ -44,7 +44,9 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app/private'),
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL', 'http://localhost').'/storage',
+            'visibility' => 'public',
             'serve' => true,
             'throw' => false,
             'report' => false,
@@ -55,6 +57,7 @@ return [
             'root' => storage_path('app/public'),
             'url' => env('APP_URL', 'http://localhost').'/storage',
             'visibility' => 'public',
+            'serve' => true,
             'throw' => false,
             'report' => false,
         ],
@@ -62,6 +65,7 @@ return [
         'private' => [
             'driver' => 'local',
             'root' => storage_path('app/private'),
+            'serve' => true,
             'visibility' => 'private',
             'throw' => false,
             'report' => false,
