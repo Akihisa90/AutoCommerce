@@ -12,6 +12,8 @@ $storageDirs = [
     __DIR__.'/../storage/framework/sessions',
     __DIR__.'/../storage/framework/views',
     __DIR__.'/../storage/logs',
+    __DIR__.'/../storage/app/public',
+    __DIR__.'/../storage/app/public/produk',
 ];
 foreach ($storageDirs as $dir) {
     if (!is_dir($dir)) {
@@ -22,7 +24,10 @@ foreach ($storageDirs as $dir) {
 // Ensure storage symlink exists for public disk (required for Laravel Cloud)
 $storageLink = __DIR__.'/storage';
 $storageTarget = __DIR__.'/../storage/app/public';
-if (!is_link($storageLink) && is_dir($storageTarget)) {
+if (is_link($storageLink)) {
+    @unlink($storageLink);
+}
+if (!is_link($storageLink)) {
     @symlink($storageTarget, $storageLink);
 }
 

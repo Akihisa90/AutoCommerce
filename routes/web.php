@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\{KatalogController, KeranjangController, CheckoutController, PesananController, WishlistController, DashboardController};
 
 /*
@@ -16,6 +17,17 @@ Route::get('/', function () {
 
 Route::get('/katalog', [KatalogController::class, 'index'])->name('katalog');
 Route::get('/produk/{produk}', [KatalogController::class, 'show'])->name('produk.show');
+
+// Serve storage files (fallback for when symlink doesn't work)
+Route::get('/storage/{path}', function ($path) {
+    $disk = Storage::disk('public');
+    if ($disk->exists($path)) {
+        return response()->file($disk->path($path), [
+            'Content-Type' => $disk->mimeType($path),
+        ]);
+    }
+    abort(404);
+})->where('path', '.*');
 
 /*
 | 2. ROUTE USER (Membutuhkan Login)
