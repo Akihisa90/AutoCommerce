@@ -19,6 +19,13 @@ foreach ($storageDirs as $dir) {
     }
 }
 
+// Ensure storage symlink exists for public disk (required for Laravel Cloud)
+$storageLink = __DIR__.'/storage';
+$storageTarget = __DIR__.'/../storage/app/public';
+if (!is_link($storageLink) && is_dir($storageTarget)) {
+    @symlink($storageTarget, $storageLink);
+}
+
 // Determine if the application is in maintenance mode...
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
     require $maintenance;
