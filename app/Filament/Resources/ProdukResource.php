@@ -112,7 +112,7 @@ class ProdukResource extends Resource
                     ->label('Gambar Produk')
                     ->image()
                     ->directory('produk')
-                    ->disk(config('filesystems.cloud', 'public'))
+                    ->disk('public')
                     ->visibility('public')
                     ->maxSize(2048)
                     ->imageResizeMode('cover')
@@ -136,7 +136,7 @@ class ProdukResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('gambar')
                     ->label('Gambar')
-                    ->disk(config('filesystems.cloud', 'public'))
+                    ->disk('public')
                     ->circular()
                     ->size(70),
                 Tables\Columns\TextColumn::make('nama')

@@ -34,7 +34,7 @@
             <div class="d-flex gap-2 overflow-auto">
                 @foreach($flashSale as $item)
                 <a href="{{ route('produk.show', $item) }}" class="text-white text-decoration-none d-flex align-items-center gap-2 bg-white bg-opacity-25 rounded-pill px-3 py-1 small">
-                    <img src="{{ $item->gambar ? Storage::disk(config('filesystems.cloud', 'public'))->url($item->gambar) : '' }}" alt="{{ $item->nama }}" class="rounded-circle" style="width:24px;height:24px;object-fit:cover;">
+                    <img src="{{ $item->gambar ? $item->imageUrl() : '' }}" alt="{{ $item->nama }}" class="rounded-circle" style="width:24px;height:24px;object-fit:cover;">
                     <span class="text-truncate" style="max-width:120px;">{{ $item->nama }}</span>
                     @if($item->harga_diskon)
                     <span class="badge bg-warning text-dark">-{{ $item->getHargaDiskonPercent() }}%</span>
@@ -326,7 +326,7 @@
                                 <figure class="product-figure mb-0 position-relative overflow-hidden">
                                     <a href="{{ route('produk.show', $produk) }}">
                                         @if ($produk->gambar)
-                                        <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($produk->gambar) }}" alt="{{ $produk->nama }}" class="img-fluid product-image w-100" loading="lazy">
+                                        <img src="{{ $produk->imageUrl() }}" alt="{{ $produk->nama }}" class="img-fluid product-image w-100" loading="lazy">
                                         @else
                                         <div class="bg-light d-flex align-items-center justify-content-center product-placeholder">
                                             <i class="bi bi-image display-1 text-muted"></i>
@@ -460,7 +460,7 @@
                         <div class="product-card-list bg-white rounded-3 shadow-sm border-0 p-3 mb-3 d-flex gap-3" data-aos="fade-up" data-aos-delay="{{ $loop->index * 30 }}">
                             <a href="{{ route('produk.show', $produk) }}" class="flex-shrink-0" style="width:180px;">
                                 @if ($produk->gambar)
-                                <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($produk->gambar) }}" alt="{{ $produk->nama }}" class="img-fluid rounded-2" style="height:150px;object-fit:cover;" loading="lazy">
+                                <img src="{{ $produk->imageUrl() }}" alt="{{ $produk->nama }}" class="img-fluid rounded-2" style="height:150px;object-fit:cover;" loading="lazy">
                                 @else
                                 <div class="bg-light d-flex align-items-center justify-content-center rounded-2" style="height:150px;">
                                     <i class="bi bi-image display-4 text-muted"></i>
@@ -579,7 +579,7 @@
                             <a href="{{ route('produk.show', $rec) }}" class="text-decoration-none">
                                 <div class="bg-white rounded-3 shadow-sm p-2 text-center h-100">
                                     @if($rec->gambar)
-                                    <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($rec->gambar) }}" alt="{{ $rec->nama }}" class="img-fluid rounded-2 mb-2" style="height:100px;object-fit:cover;" loading="lazy">
+                                    <img src="{{ $rec->imageUrl() }}" alt="{{ $rec->nama }}" class="img-fluid rounded-2 mb-2" style="height:100px;object-fit:cover;" loading="lazy">
                                     @else
                                     <div class="bg-light d-flex align-items-center justify-content-center rounded-2 mb-2" style="height:100px;">
                                         <i class="bi bi-image text-muted"></i>

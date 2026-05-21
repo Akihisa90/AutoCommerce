@@ -84,4 +84,12 @@ class Produk extends Model
     {
         return $query->orderBy('rating', 'desc');
     }
+
+    public function imageUrl(): ?string
+    {
+        if (!$this->gambar) {
+            return null;
+        }
+        return Storage::disk('public')->url($this->gambar);
+    }
 }

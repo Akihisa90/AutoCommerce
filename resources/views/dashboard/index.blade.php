@@ -138,7 +138,7 @@
                     <a href="{{ route('produk.show', $produk) }}" class="text-decoration-none">
                         <div class="position-relative">
                             @if($produk->gambar)
-                            <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($produk->gambar) }}" alt="{{ $produk->nama }}" class="img-fluid w-100" style="height:150px;object-fit:cover;">
+                            <img src="{{ $produk->imageUrl() }}" alt="{{ $produk->nama }}" class="img-fluid w-100" style="height:150px;object-fit:cover;">
                             @else
                             <div class="bg-light d-flex align-items-center justify-content-center" style="height:150px;">
                                 <i class="bi bi-image display-4 text-muted"></i>
@@ -181,7 +181,7 @@
                         @endphp
                         @if($produkGambar && $produkGambar->gambar)
                         <div class="category-image-wrapper position-relative">
-                            <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($produkGambar->gambar) }}" alt="{{ $kat->nama }}" class="img-fluid w-100 category-image" style="height:150px;object-fit:cover;">
+                            <img src="{{ $produkGambar->imageUrl() }}" alt="{{ $kat->nama }}" class="img-fluid w-100 category-image" style="height:150px;object-fit:cover;">
                             <div class="category-overlay"></div>
                         </div>
                         @else

@@ -280,7 +280,7 @@
 
                         @if($pesanan->bukti_pembayaran)
                             <div class="text-center">
-                                <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($pesanan->bukti_pembayaran) }}" alt="Bukti Pembayaran"
+                                <img src="{{ Storage::disk('public')->url($pesanan->bukti_pembayaran) }}" alt="Bukti Pembayaran"
                                      class="img-fluid rounded shadow-sm" style="max-width: 400px;">
                                 <p class="text-success small mt-2">
                                     <i class="bi bi-check-circle me-1"></i>Bukti pembayaran sudah diupload. Menunggu verifikasi admin.
@@ -409,7 +409,7 @@
                         <div class="border rounded-3 p-3 mb-3 {{ $existingReview ? 'bg-light' : '' }}">
                             <div class="d-flex align-items-center gap-3 mb-3">
                                 @if($detail->produk->gambar)
-                                <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($detail->produk->gambar) }}" alt="{{ $detail->produk->nama }}" class="rounded-2" style="width:60px;height:60px;object-fit:cover;">
+                                <img src="{{ $detail->produk->imageUrl() }}" alt="{{ $detail->produk->nama }}" class="rounded-2" style="width:60px;height:60px;object-fit:cover;">
                                 @else
                                 <div class="bg-light d-flex align-items-center justify-content-center rounded-2" style="width:60px;height:60px;">
                                     <i class="bi bi-image text-muted"></i>

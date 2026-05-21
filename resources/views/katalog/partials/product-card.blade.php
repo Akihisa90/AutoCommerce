@@ -3,7 +3,7 @@
     <figure class="product-figure mb-0 position-relative overflow-hidden">
         <a href="{{ route('produk.show', $produk) }}">
             @if ($produk->gambar)
-            <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($produk->gambar) }}" alt="{{ $produk->nama }}" class="img-fluid product-image w-100" loading="lazy">
+            <img src="{{ $produk->imageUrl() }}" alt="{{ $produk->nama }}" class="img-fluid product-image w-100" loading="lazy">
             @else
             <div class="bg-light d-flex align-items-center justify-content-center product-placeholder">
                 <i class="bi bi-image display-1 text-muted"></i>

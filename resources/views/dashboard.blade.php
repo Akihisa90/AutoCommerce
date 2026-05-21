@@ -198,7 +198,7 @@
                         <div class="d-flex justify-content-between align-items-center py-2 border-bottom {{ !$loop->last ? '' : 'border-0' }}">
                             <div class="d-flex align-items-center">
                                 @if($produk->gambar)
-                                <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($produk->gambar) }}" alt="{{ $produk->nama }}"
+                                <img src="{{ $produk->imageUrl() }}" alt="{{ $produk->nama }}"
                                     class="rounded" style="width: 40px; height: 40px; object-fit: cover;">
                                 @else
                                 <div class="bg-light d-flex align-items-center justify-content-center rounded"
