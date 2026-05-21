@@ -60,7 +60,7 @@ Route::get('/storage-debug', function () {
 /*
 | 2. ROUTE USER (Membutuhkan Login)
 */
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
 
     // --- Dashboard ---
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

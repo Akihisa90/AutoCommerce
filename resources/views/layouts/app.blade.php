@@ -174,6 +174,33 @@
 
     <!-- Main Content -->
     <main>
+        @auth
+            @if (!auth()->user()->hasVerifiedEmail())
+                <div class="bg-warning py-3">
+                    <div class="container">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="bi bi-exclamation-triangle me-2"></i>
+                                <strong>Email Anda belum diverifikasi.</strong>
+                                <span class="d-none d-md-inline ms-2">Silakan verifikasi email Anda untuk mengakses semua fitur.</span>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <form method="POST" action="{{ route('verification.send') }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-sm btn-dark">
+                                        <i class="bi bi-send me-1"></i>Kirim Ulang Email
+                                    </button>
+                                </form>
+                                <a href="{{ route('verification.notice') }}" class="btn btn-sm btn-outline-dark">
+                                    <i class="bi bi-envelope me-1"></i>Verifikasi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endauth
+
         @yield('content')
     </main>
 
