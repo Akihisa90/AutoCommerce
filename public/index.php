@@ -24,10 +24,18 @@ foreach ($storageDirs as $dir) {
 // Ensure storage symlink exists for public disk (required for Laravel Cloud)
 $storageLink = __DIR__.'/storage';
 $storageTarget = __DIR__.'/../storage/app/public';
+
+// Remove broken symlink or directory
 if (is_link($storageLink)) {
     @unlink($storageLink);
+} elseif (is_dir($storageLink)) {
+    @rmdir($storageLink);
+} elseif (is_file($storageLink)) {
+    @unlink($storageLink);
 }
-if (!is_link($storageLink)) {
+
+// Create fresh symlink
+if (!file_exists($storageLink)) {
     @symlink($storageTarget, $storageLink);
 }
 

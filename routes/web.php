@@ -18,15 +18,18 @@ Route::get('/', function () {
 Route::get('/katalog', [KatalogController::class, 'index'])->name('katalog');
 Route::get('/produk/{produk}', [KatalogController::class, 'show'])->name('produk.show');
 
-// Serve storage files (fallback for when symlink doesn't work)
+// Serve storage files (fallback for when symlink doesn't work on Laravel Cloud)
 Route::get('/storage/{path}', function ($path) {
-    $disk = Storage::disk('public');
-    if ($disk->exists($path)) {
-        return response()->file($disk->path($path), [
-            'Content-Type' => $disk->mimeType($path),
-        ]);
+    $fullPath = storage_path('app/public/' . $path);
+    
+    if (!file_exists($fullPath)) {
+        abort(404);
     }
-    abort(404);
+    
+    return response()->file($fullPath, [
+        'Content-Type' => mime_content_type($fullPath),
+        'Cache-Control' => 'public, max-age=31536000',
+    ]);
 })->where('path', '.*');
 
 /*
