@@ -12,6 +12,12 @@
 <form method="POST" action="{{ route('login') }}">
     @csrf
 
+    @if (session('status'))
+        <div class="alert alert-success mb-3" role="alert">
+            <i class="bi bi-check-circle me-2"></i>{{ session('status') }}
+        </div>
+    @endif
+
     <!-- Email Address -->
     <div class="mb-3">
         <label for="email" class="form-label">
