@@ -5,6 +5,20 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
+// Ensure storage directories exist (required for Laravel Cloud)
+$storageDirs = [
+    __DIR__.'/../storage/framework/cache',
+    __DIR__.'/../storage/framework/cache/data',
+    __DIR__.'/../storage/framework/sessions',
+    __DIR__.'/../storage/framework/views',
+    __DIR__.'/../storage/logs',
+];
+foreach ($storageDirs as $dir) {
+    if (!is_dir($dir)) {
+        @mkdir($dir, 0777, true);
+    }
+}
+
 // Determine if the application is in maintenance mode...
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
     require $maintenance;
