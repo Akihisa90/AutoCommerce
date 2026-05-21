@@ -22,7 +22,7 @@
                         @if(!empty($data['qris_qr_image']))
                         <div class="mt-3">
                             <p class="text-sm text-gray-500 mb-2">QR Code saat ini:</p>
-                            <img src="{{ Storage::url($data['qris_qr_image']) }}" alt="QRIS QR"
+                            <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($data['qris_qr_image']) }}" alt="QRIS QR"
                                 class="max-w-xs rounded-lg border shadow-sm" />
                             <button type="button" wire:click="$set('data.qris_qr_image', '')"
                                 class="mt-2 text-sm text-danger-600 hover:text-danger-700">
@@ -74,7 +74,7 @@
                         @if(!empty($data['dana_qr_image']))
                         <div class="mt-3">
                             <p class="text-sm text-gray-500 mb-2">QR Code DANA saat ini:</p>
-                            <img src="{{ Storage::url($data['dana_qr_image']) }}" alt="DANA QR"
+                            <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($data['dana_qr_image']) }}" alt="DANA QR"
                                 class="max-w-xs rounded-lg border shadow-sm" />
                             <button type="button" wire:click="$set('data.dana_qr_image', '')"
                                 class="mt-2 text-sm text-danger-600 hover:text-danger-700">

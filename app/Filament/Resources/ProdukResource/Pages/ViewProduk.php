@@ -42,7 +42,7 @@ class ViewProduk extends ViewRecord
                     ->label('Deskripsi'),
                 Components\ImageEntry::make('gambar')
                     ->label('Gambar Produk')
-                    ->disk('public')
+                    ->disk(config('filesystems.cloud', 'public'))
                     ->circular()
                     ->size(200)
                     ->alignment('center'),

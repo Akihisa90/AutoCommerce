@@ -36,7 +36,7 @@
                     <div class="swiper-wrapper">
                         @if($produk->gambar)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $produk->gambar) }}" alt="{{ $produk->nama }}"
+                            <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($produk->gambar) }}" alt="{{ $produk->nama }}"
                                 class="img-fluid w-100" style="max-height: 500px; object-fit: cover;">
                         </div>
                         @else
@@ -290,7 +290,7 @@
                     <figure class="product-figure mb-0 position-relative overflow-hidden">
                         <a href="{{ route('produk.show', $related) }}">
                             @if($related->gambar)
-                            <img src="{{ asset('storage/' . $related->gambar) }}" alt="{{ $related->nama }}"
+                            <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($related->gambar) }}" alt="{{ $related->nama }}"
                                 class="img-fluid product-image w-100">
                             @else
                             <div class="bg-light d-flex align-items-center justify-content-center product-placeholder">

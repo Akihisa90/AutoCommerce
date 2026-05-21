@@ -131,7 +131,7 @@ class ViewTransaksi extends ViewRecord
                 ->schema([
                     Components\ImageEntry::make('bukti_pembayaran')
                         ->label('Bukti Pembayaran')
-                        ->disk('public')
+                        ->disk(config('filesystems.cloud', 'public'))
                         ->width(300),
                 ]),
         ]);

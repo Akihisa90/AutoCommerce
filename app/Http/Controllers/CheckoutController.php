@@ -121,7 +121,7 @@ class CheckoutController extends Controller
 
         $buktiPath = null;
         if ($request->hasFile('bukti_pembayaran')) {
-            $buktiPath = $request->file('bukti_pembayaran')->store('bukti_pembayaran', 'public');
+            $buktiPath = $request->file('bukti_pembayaran')->store('bukti_pembayaran', config('filesystems.cloud', 'public'));
         }
 
         DB::transaction(function () use ($request, $items, $buktiPath) {

@@ -17,6 +17,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Cloud Filesystem Disk
+    |--------------------------------------------------------------------------
+    |
+    | This disk is used for storing publicly accessible files like images
+    | uploaded via Filament admin panel. On Laravel Cloud, this should be
+    | configured to use S3 or another cloud storage for persistence.
+    |
+    */
+    'cloud' => env('FILESYSTEM_CLOUD_DISK', 'public'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Filesystem Disks
     |--------------------------------------------------------------------------
     |
@@ -41,8 +53,16 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => rtrim(env('APP_URL', 'http://localhost'), '/').'/storage',
+            'url' => env('APP_URL', 'http://localhost').'/storage',
             'visibility' => 'public',
+            'throw' => false,
+            'report' => false,
+        ],
+
+        'private' => [
+            'driver' => 'local',
+            'root' => storage_path('app/private'),
+            'visibility' => 'private',
             'throw' => false,
             'report' => false,
         ],
@@ -58,6 +78,7 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
             'report' => false,
+            'visibility' => 'public',
         ],
 
     ],
@@ -77,4 +98,14 @@ return [
         public_path('storage') => storage_path('app/public'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Cloud Storage Disk
+    |--------------------------------------------------------------------------
+    |
+    | This disk is used for cloud storage on Laravel Cloud. It defaults to
+    | the 's3' driver when AWS credentials are configured, otherwise falls
+    | back to 'public' for local development.
+    |
+    */
 ];

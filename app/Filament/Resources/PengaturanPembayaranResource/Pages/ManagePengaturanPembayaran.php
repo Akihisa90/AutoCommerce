@@ -54,7 +54,7 @@ class ManagePengaturanPembayaran extends Page
         if (str_starts_with($dataUrl, 'data:image/')) {
             $imageData = base64_decode(substr($dataUrl, strpos($dataUrl, ',') + 1));
             $filename = $prefix . '_' . time() . '.png';
-            Storage::disk('public')->put('pembayaran/' . $filename, $imageData);
+            Storage::disk(config('filesystems.cloud', 'public'))->put('pembayaran/' . $filename, $imageData);
             return 'pembayaran/' . $filename;
         }
         return '';

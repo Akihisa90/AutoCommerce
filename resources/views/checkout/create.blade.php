@@ -203,7 +203,7 @@
                             <p class="text-muted small mb-3">{{ $qrisDescription }}</p>
                             @if(!empty($qrisQrImage))
                             <div class="text-center bg-white p-4 rounded-3">
-                                <img src="{{ Storage::url($qrisQrImage) }}" alt="QR Code QRIS"
+                                <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($qrisQrImage) }}" alt="QR Code QRIS"
                                     class="img-fluid rounded shadow-sm" style="max-width: 300px;">
                             </div>
                             @else
@@ -292,7 +292,7 @@
                                 <p class="text-muted small mb-3">Scan QR Code di bawah untuk pembayaran otomatis</p>
                                 @if(!empty($danaQrImage))
                                 <div class="text-center bg-white p-4 rounded-3">
-                                    <img src="{{ Storage::url($danaQrImage) }}" alt="QR Code DANA"
+                                    <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($danaQrImage) }}" alt="QR Code DANA"
                                         class="img-fluid rounded shadow-sm" style="max-width: 300px;">
                                 </div>
                                 @else

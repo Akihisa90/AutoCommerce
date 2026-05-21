@@ -106,7 +106,7 @@ class PesananController extends Controller
             return back()->with('error', 'Pesanan sudah diproses atau dibatalkan.');
         }
 
-        $path = $request->file('bukti_pembayaran')->store('bukti_pembayaran', 'public');
+        $path = $request->file('bukti_pembayaran')->store('bukti_pembayaran', config('filesystems.cloud', 'public'));
         $pesanan->update(['bukti_pembayaran' => $path]);
 
         return back()->with('success', 'Bukti pembayaran berhasil diupload. Menunggu verifikasi admin.');

@@ -67,7 +67,7 @@
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 @if ($item->produk->gambar)
-                                                <img src="{{ asset('storage/' . $item->produk->gambar) }}"
+                                                <img src="{{ Storage::disk(config('filesystems.cloud', 'public'))->url($item->produk->gambar) }}"
                                                     alt="{{ $item->produk->nama }}"
                                                     class="rounded"
                                                     style="width: 80px; height: 80px; object-fit: cover;">
